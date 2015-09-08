@@ -1,38 +1,43 @@
 package br.com.mauriciotsilva;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import static br.com.mauriciotsilva.App.firstChar;
+import static junit.framework.Assert.assertEquals;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+import org.junit.Test;
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
+import br.com.mauriciotsilva.stream.Stream;
+import br.com.mauriciotsilva.stream.StreamImpl;
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+public class AppTest {
+
+	@Test
+	public void deveRetornarLetraBEmMinusculo() {
+		Stream stream = new StreamImpl("aAbBABac");
+		assertEquals('b', firstChar(stream));
+	}
+
+	@Test
+	public void deveRetornarLetraBEmMaiusculo() {
+		Stream stream = new StreamImpl("AABBABAC");
+		assertEquals('B', firstChar(stream));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void deveLancarIllegalArgumentExceptionQuandoNaoLocalizar() {
+		Stream stream = new StreamImpl("a");
+		firstChar(stream);
+	}
+
+	@Test
+	public void deveRetornarLetraAEmMaiusculo() {
+		Stream stream = new StreamImpl("  a");
+		assertEquals('a', firstChar(stream));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void deveLancarIllegalArgumentExceptionAoInformarNuloComoParametroStream() {
+		Stream stream = new StreamImpl(null);
+		firstChar(stream);
+	}
+
 }

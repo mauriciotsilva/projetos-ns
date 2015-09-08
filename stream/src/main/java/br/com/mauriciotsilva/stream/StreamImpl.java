@@ -6,6 +6,9 @@ public class StreamImpl implements Stream {
 	private CharSequence texto;
 
 	public StreamImpl(CharSequence texto) {
+		if (texto == null) {
+			texto = new StringBuilder();
+		}
 		this.texto = texto;
 	}
 
