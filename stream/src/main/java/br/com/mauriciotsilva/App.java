@@ -6,13 +6,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 import br.com.mauriciotsilva.stream.Stream;
-import br.com.mauriciotsilva.stream.StreamImpl;
 
 public class App {
 
 	public static void main(String... args) {
 
-		Stream stream = new StreamImpl("Aac");
+		Stream stream = Stream.from("aAbBABac");
 		System.out.println(firstChar(stream));
 
 	}
@@ -30,7 +29,6 @@ public class App {
 			}
 		}
 
-		throw new IllegalArgumentException(
-				"Não foi possível localizar uma sequência para o texto informado");
+		throw new IllegalArgumentException("Não foi possível localizar uma sequência para o texto informado");
 	}
 }

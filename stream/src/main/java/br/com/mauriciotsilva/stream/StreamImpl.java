@@ -1,6 +1,6 @@
 package br.com.mauriciotsilva.stream;
 
-public class StreamImpl implements Stream {
+class StreamImpl implements Stream {
 
 	private int index;
 	private CharSequence texto;

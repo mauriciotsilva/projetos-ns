@@ -6,4 +6,8 @@ public interface Stream {
 
 	public boolean hasNext();
 
+	public static Stream from(CharSequence texto) {
+		return new StreamImpl(texto);
+	}
+
 }
