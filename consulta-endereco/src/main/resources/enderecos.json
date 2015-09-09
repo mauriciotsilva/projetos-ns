@@ -1,0 +1,20 @@
+[
+	{"state": "SP", "city": "São Paulo", "district": "Sé", "zip_code": {"code": "01001000"}, "street": "Praça da Sé"},
+	{"state": "SP", "city": "São Paulo", "district": "Bela Vista", "zip_code": {"code": "01311000"} , "street": "Avenida Paulista"},
+	{"state": "SP", "city": "São Paulo", "district": "Lapa", "zip_code": {"code": "01311000"} , "street": "Rua Afonso Sardinha"},
+	{"state": "SP", "city": "São Paulo", "district": "Consolação", "zip_code": {"code":"01301901"}, "street": "Rua da Consolação"},
+	{"state": "SP", "city": "São Paulo", "district": "Vila Hamburguesa", "zip_code": {"code":"05319000"}, "street": "Avenida Queiroz Filho"},
+	{"state": "MG", "city": "Belo Horizonte", "district": "Centro", "zip_code": {"code": "30110911"}, "street": "Avenida do Contorno"},
+	{"state": "MG", "city": "Belo Horizonte", "district": "Piratininga", "zip_code": {"code": "31570600"}, "street": "Rua Pedra Verde"},
+	{"state": "MG", "city": "Belo Horizonte", "district": "Pampulha", "zip_code": {"code":"31310000"}, "street": "Avenida Alfredo Camaratti"},
+	{"state": "MG", "city": "Belo Horizonte", "district": "Pampulha", "zip_code": {"code":"31270860"}, "street": "Praça Santo Antônio"},
+	{"state": "MG", "city": "Belo Horizonte", "district": "Centro", "zip_code": {"code":"30130904"}, "street": "Avenida Afonso Pena"},
+	{"state": "RJ", "city": "Rio de Janeiro", "district": "Ipanema", "zip_code": {"code":"22420006"}, "street": "Avenida Vieira Souto"},
+	{"state": "RJ", "city": "Rio de Janeiro", "district": "Centro", "zip_code": {"code":"20031007"}, "street": "Avenida 13 de Maio"},
+	{"state": "RJ", "city": "Rio de Janeiro", "district": "Flamengo", "zip_code": {"code":"22250050"}, "street": "Parque Flamengo"},
+	{"state": "RJ", "city": "Rio de Janeiro", "district": "Copacabana", "zip_code": {"code":"22050031"}, "street": "Rua Bar�o de Ipanema"},
+	{"state": "RJ", "city": "Niterói", "district": "Itaipu", "zip_code": {"code":"24355300"}, "street": "Rua Ary Guanabara"},
+	{"state": "PA", "city": "Belém", "district": "Centro", "zip_code": {"code":"67030170"}, "street": "Rua José Marcelino de Oliveira"},
+	{"state": "PA", "city": "Belém", "district": "Centro", "zip_code": {"code":"66077490"}, "street": "Rua da Paz"},
+	{"state": "PA", "city": "Belém", "district": "Parque Guajara - Icoaraci", "zip_code": {"code":"66000001"}, "street": "Rua Centro"}
+]
