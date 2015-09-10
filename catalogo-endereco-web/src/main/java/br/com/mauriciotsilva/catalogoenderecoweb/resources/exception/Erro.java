@@ -1,35 +1,42 @@
 package br.com.mauriciotsilva.catalogoenderecoweb.resources.exception;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Erro {
 
-	@XmlElement(name = "message")
-	private String mensagem;
+	@XmlAttribute(name = "mensagens")
+	@XmlElementWrapper(name = "mensagem")
+	private List<MensagemErro> mensagens;
 
-	protected Erro() {
+	public Erro() {
+		this.mensagens = new ArrayList<>();
 	}
 
-	public Erro(String mensagem) {
+	public Erro(MensagemErro mensagemErro) {
 		this();
-		this.mensagem = mensagem;
+		adicionarMensagem(mensagemErro);
 	}
 
-	public Erro(Throwable throwable) {
-		this(throwable.getMessage());
+	public void adicionarMensagens(Collection<MensagemErro> mensagens) {
+		this.mensagens.addAll(mensagens);
 	}
 
-	protected String getMensagem() {
-		return mensagem;
+	public void adicionarMensagem(MensagemErro mensagem) {
+		mensagens.add(mensagem);
 	}
 
-	protected void setMensagem(String mensagem) {
-		this.mensagem = mensagem;
+	protected List<MensagemErro> getMensagens() {
+		return mensagens;
 	}
 
 }

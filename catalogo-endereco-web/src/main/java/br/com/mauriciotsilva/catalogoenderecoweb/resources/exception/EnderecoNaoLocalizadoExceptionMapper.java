@@ -11,7 +11,7 @@ public class EnderecoNaoLocalizadoExceptionMapper implements ExceptionMapper<End
 
 	@Override
 	public Response toResponse(EnderecoNaoLocalizadoException exception) {
-		return Response.status(404).entity(new Erro(exception)).build();
+		return Response.status(404).entity(new Erro(new MensagemErro(exception))).build();
 	}
 
 }

@@ -2,43 +2,45 @@ package br.com.mauriciotsilva.catalogoenderecoweb.catalogo;
 
 import java.util.UUID;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "address")
+import br.com.mauriciotsilva.catalogoenderecoweb.validacao.Cep;
+
+@Entity
+@Table(name = "endereco")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Endereco {
 
-	@XmlElement(name = "id")
+	@Id
+	@SequenceGenerator(name = "seq_endereco", sequenceName = "seq_endereco")
+	@GeneratedValue(generator = "seq_endereco", strategy = GenerationType.SEQUENCE)
 	private String id;
 
 	@NotNull
-	@XmlElement(name = "street")
 	private String rua;
 
 	@NotNull
-	@XmlElement(name = "number")
 	private String numero;
 
-	@XmlElement(name = "district")
 	private String bairro;
 
 	@NotNull
-	@XmlElement(name = "city")
 	private String cidade;
 
 	@NotNull
-	@XmlElement(name = "state")
 	private String estado;
 
-	@NotNull
-	@XmlElement(name = "zip_code")
+	@Cep
 	private String cep;
 
-	@XmlElement(name = "xxx")
 	private String complemento;
 
 	protected Endereco() {
