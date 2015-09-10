@@ -28,14 +28,13 @@ public class EnderecoService {
 		Endereco endereco = null;
 		StringBuilder builder = new StringBuilder(cep.getNumero());
 
-		do {
-
+		while (true) {
 			endereco = repositorio.buscarPorCep(new Cep(builder));
 			if (endereco != null || builder.length() == 0) {
 				break;
 			}
 			builder = builder.deleteCharAt(builder.length() - 1);
-		} while (true);
+		}
 
 		return endereco;
 	}
