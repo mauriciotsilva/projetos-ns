@@ -33,10 +33,9 @@ public class EnderecoService {
 			if (endereco != null || builder.length() == 0) {
 				break;
 			}
-			builder = builder.deleteCharAt(builder.length() - 1);
+			builder.deleteCharAt(builder.length() - 1);
 		}
 
 		return endereco;
 	}
-
 }
