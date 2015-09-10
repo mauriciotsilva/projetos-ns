@@ -37,8 +37,8 @@ public class EnderecoEstaticoRepositorio implements EnderecoRepositorio {
 	}
 
 	@Override
-	public void deletar(String id) {
-		enderecos.remove(new Endereco(id));
+	public void deletar(Endereco endereco) {
+		enderecos.remove(endereco);
 	}
 
 }

@@ -1,6 +1,6 @@
 package br.com.mauriciotsilva.catalogoenderecoweb.resources;
 
-import static javax.ws.rs.core.Link.fromMethod;
+import static javax.ws.rs.core.Link.fromUri;
 import static javax.ws.rs.core.Response.created;
 import static javax.ws.rs.core.Response.noContent;
 import static javax.ws.rs.core.Response.ok;
@@ -19,7 +19,7 @@ import javax.ws.rs.core.Response;
 import br.com.mauriciotsilva.catalogoenderecoweb.catalogo.Endereco;
 import br.com.mauriciotsilva.catalogoenderecoweb.servicos.EnderecoService;
 
-@Path("/addresses")
+@Path("/enderecos")
 @Consumes("application/json")
 @Produces("application/json")
 public class EnderecoResource {
@@ -31,25 +31,24 @@ public class EnderecoResource {
 	public Response incluir(Endereco endereco) {
 
 		servico.incluir(endereco);
-		return created(fromMethod(EnderecoResource.class, "consultar").build(endereco.getId()).getUri())
-				.entity(endereco).build();
+		return created(fromUri("enderecos/{id}").build(endereco.getId()).getUri()).entity(endereco).build();
 	}
 
 	@GET
-	@Path("/{id}")
-	public Response consultar(@PathParam("id") String id) {
+	@Path("{id}")
+	public Response consultar(@PathParam("id") String id) throws Exception {
 		return ok(servico.consultar(id)).build();
 	}
 
 	@PUT
-	@Path("/{id}")
-	public Response atualizar(@PathParam("id") String id, Endereco endereco) {
+	@Path("{id}")
+	public Response atualizar(@PathParam("id") String id, Endereco endereco) throws Exception {
 		return ok(servico.alterar(endereco)).build();
 	}
 
 	@DELETE
-	@Path("/{id}")
-	public Response deletar(@PathParam("id") String id) {
+	@Path("{id}")
+	public Response deletar(@PathParam("id") String id) throws Exception {
 		servico.deletar(id);
 		return noContent().build();
 	}
