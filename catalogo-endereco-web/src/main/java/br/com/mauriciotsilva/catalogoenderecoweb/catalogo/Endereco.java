@@ -17,7 +17,7 @@ import br.com.mauriciotsilva.catalogoenderecoweb.validacao.Cep;
 @Entity
 @Table(name = "endereco")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Endereco {
+public class Endereco implements Cloneable {
 
 	@Id
 	@SequenceGenerator(name = "seq_endereco", sequenceName = "seq_endereco")
@@ -50,6 +50,13 @@ public class Endereco {
 	public Endereco(String id) {
 		this();
 		this.id = id;
+	}
+
+	public static Endereco novo(String id, Endereco endereco) {
+		Endereco novo = endereco.clone();
+		novo.setId(id);
+
+		return novo;
 	}
 
 	protected String getRua() {
@@ -114,6 +121,16 @@ public class Endereco {
 
 	protected void setComplemento(String complemento) {
 		this.complemento = complemento;
+	}
+
+	@Override
+	public Endereco clone() {
+		try {
+			return (Endereco) super.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
