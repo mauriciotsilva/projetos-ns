@@ -43,6 +43,8 @@ public class EnderecoResource {
 	@PUT
 	@Path("{id}")
 	public Response atualizar(@PathParam("id") String id, Endereco endereco) throws Exception {
+
+		endereco = Endereco.novo(id, endereco);
 		return ok(servico.alterar(endereco)).build();
 	}
 
