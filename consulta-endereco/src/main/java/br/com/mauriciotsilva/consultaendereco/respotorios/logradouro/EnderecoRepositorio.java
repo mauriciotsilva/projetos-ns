@@ -21,7 +21,7 @@ public class EnderecoRepositorio {
 
 	private Endereco[] lerEndecosArquivoJson() {
 
-		try (InputStream inputStream = EnderecoRepositorio.class.getResourceAsStream("/enderecos.json")) {
+		try (InputStream inputStream = getClass().getResourceAsStream("/enderecos.json")) {
 			ObjectMapper mapper = new ObjectMapper();
 			return mapper.readValue(inputStream, Endereco[].class);
 		} catch (Exception e) {
