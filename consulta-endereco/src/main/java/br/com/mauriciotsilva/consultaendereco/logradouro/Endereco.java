@@ -20,11 +20,6 @@ public class Endereco {
 	private String estado;
 
 	public Endereco() {
-		cep = new Cep("06253030");
-		rua = "Rua Joao Tomas da Silveira";
-		bairro = "Helena Maria";
-		cidade = "Osasco";
-		estado = "Sao Paulo";
 	}
 
 	public Cep getCep() {
