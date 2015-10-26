@@ -3,6 +3,7 @@ package br.com.mauriciotsilva.consultaendereco.respotorios.logradouro;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
@@ -14,9 +15,9 @@ import br.com.mauriciotsilva.consultaendereco.logradouro.Endereco;
 @Repository
 public class EnderecoRepositorio {
 
-	public Endereco buscarPorCep(Cep cep) {
+	public Optional<Endereco> buscarPorCep(Cep cep) {
 		List<Endereco> enderecos = Arrays.asList(lerEndecosArquivoJson());
-		return enderecos.stream().filter(endereco -> cep.equals(endereco.getCep())).findFirst().orElse(null);
+		return enderecos.stream().filter(endereco -> cep.equals(endereco.getCep())).findFirst();
 	}
 
 	private Endereco[] lerEndecosArquivoJson() {
