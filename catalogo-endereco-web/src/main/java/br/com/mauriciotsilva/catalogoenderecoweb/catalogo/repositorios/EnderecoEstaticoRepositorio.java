@@ -2,9 +2,13 @@ package br.com.mauriciotsilva.catalogoenderecoweb.catalogo.repositorios;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
+import javax.enterprise.inject.Alternative;
 
 import br.com.mauriciotsilva.catalogoenderecoweb.catalogo.Endereco;
 
+@Alternative
 public class EnderecoEstaticoRepositorio implements EnderecoRepositorio {
 
 	private static final List<Endereco> enderecos;
@@ -19,8 +23,8 @@ public class EnderecoEstaticoRepositorio implements EnderecoRepositorio {
 	}
 
 	@Override
-	public Endereco consultar(String id) {
-		return enderecos.stream().filter(endereco -> id.equals(endereco.getId())).findFirst().orElse(null);
+	public Optional<Endereco> consultar(String id) {
+		return enderecos.stream().filter(endereco -> id.equals(endereco.getId())).findFirst();
 	}
 
 	@Override

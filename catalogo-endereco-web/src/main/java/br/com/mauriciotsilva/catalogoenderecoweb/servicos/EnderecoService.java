@@ -1,5 +1,8 @@
 package br.com.mauriciotsilva.catalogoenderecoweb.servicos;
 
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.validation.Valid;
@@ -26,12 +29,12 @@ public class EnderecoService {
 	}
 
 	public Endereco consultar(String id) throws EnderecoNaoLocalizadoException {
-		Endereco endereco = repositorio.consultar(id);
-		if (endereco == null) {
-			throw new EnderecoNaoLocalizadoException();
+		try {
+			Optional<Endereco> endereco = repositorio.consultar(id);
+			return endereco.get();
+		} catch (NoSuchElementException e) {
+			throw new EnderecoNaoLocalizadoException(e);
 		}
-
-		return endereco;
 	}
 
 }

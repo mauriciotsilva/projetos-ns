@@ -1,39 +1,40 @@
 package br.com.mauriciotsilva.catalogoenderecoweb.catalogo.repositorios;
 
-import javax.enterprise.inject.Alternative;
+import java.util.Optional;
+
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import br.com.mauriciotsilva.catalogoenderecoweb.catalogo.Endereco;
 
-@Alternative
 public class EnderecoJpaRepositorio implements EnderecoRepositorio {
 
-	private EntityManager em;
+	private EntityManager entityManager;
 
 	@Inject
-	public EnderecoJpaRepositorio(EntityManager em) {
-		this.em = em;
+	public EnderecoJpaRepositorio(EntityManager entityManager) {
+		this.entityManager = entityManager;
 	}
 
 	@Override
 	public void incluir(Endereco endereco) {
-		em.persist(endereco);
+		entityManager.persist(endereco);
 	}
 
 	@Override
-	public Endereco consultar(String id) {
-		return em.find(Endereco.class, id);
+	public Optional<Endereco> consultar(String id) {
+		Endereco endereco = entityManager.find(Endereco.class, id);
+		return Optional.ofNullable(endereco);
 	}
 
 	@Override
 	public Endereco alterar(Endereco endereco) {
-		return em.merge(endereco);
+		return entityManager.merge(endereco);
 	}
 
 	@Override
 	public void deletar(Endereco endereco) {
-		em.remove(endereco);
+		entityManager.remove(endereco);
 	}
 
 }
